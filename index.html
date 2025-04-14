@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charishma's Portfolio</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: #3a3a3a;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+        
+        section {
+            background-color: white;
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        .profile-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: flex-start;
+        }
+        
+        .profile-image {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #3498db;
+        }
+        
+        .profile-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .gallery-img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .education-item {
+            margin-bottom: 20px;
+        }
+        
+        .education-item h3 {
+            margin-bottom: 5px;
+            color: #3498db;
+        }
+        
+        .education-item p {
+            margin: 5px 0;
+        }
+        
+        .skills-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .skills-table th, .skills-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        
+        .skills-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        
+        .skills-table tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .cv-download {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .cv-download:hover {
+            background-color: #2980b9;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #3a3a3a;
+            color: white;
+            margin-top: 30px;
+        }
+
+        /* Text Analysis Styles */
+        .text-analysis {
+            margin-top: 30px;
+        }
+        
+        .text-input {
+            width: 100%;
+            height: 200px;
+            padding: 10px;
+            font-family: inherit;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: vertical;
+            margin-bottom: 15px;
+        }
+        
+        .analyze-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .analyze-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .results {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            background-color: #f9f9f9;
+        }
+        
+        .result-section {
+            margin-bottom: 15px;
+        }
+        
+        .result-section h4 {
+            margin-top: 0;
+            color: #3498db;
+        }
+        
+        .result-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .result-table th, .result-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        
+        @media (max-width: 768px) {
+            .profile-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .profile-text {
+                text-align: center;
+            }
+            
+            .image-gallery {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Charishma</h1>
+            <p class="subtitle">Computer Science & Engineering Student | IIIT Hyderabad</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Step 1: About yourself in a paragraph -->
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="profile-text">
+                <p>I'm Charishma, a first-year B.Tech student in the Computer Science and Engineering (CSE) department at IIIT Hyderabad. 
+                I'm passionate about programming and I enjoy working on projects that involve code and creativity.
+                Apart from academics, I love dancing and playing games.</p>
+            </div>
+        </section>
+        
+        <!-- Step 2: Include your profile picture along with some local pictures from your birthplace -->
+        <section id="pictures">
+            <h2>Profile & Hometown Pictures</h2>
+            <div class="profile-container">
+                <img src="profile.jpg" alt="Charishma's Profile Picture" class="profile-image">
+                <div class="profile-text">
+                    <h3>My Hometown</h3>
+                    <p>Here are some pictures from my birthplace:</p>
+                    <div class="image-gallery">
+                        <img src="hometown1.jpg" alt="Hometown View" class="gallery-img">
+                        <img src="hometown2.jpg" alt="Local Culture" class="gallery-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Step 3: Write about your education background, schools you studied, achievements -->
+        <section id="education">
+            <h2>Education</h2>
+            
+            <div class="education-item">
+                <h3>IIIT Hyderabad</h3>
+                <p><strong>Program:</strong> B.Tech in Computer Science and Engineering</p>
+                <p><strong>Duration:</strong> 2024 - Present</p>
+                <p><strong>Key Subjects:</strong> Data Structures, Algorithms, Software Systems, Computer Networks</p>
+            </div>
+            
+            <div class="education-item">
+                <h3>Narayana School, Hyderabad</h3>
+                <p><strong>Program:</strong> High School Education</p>
+                <p><strong>Duration:</strong> 7th Grade Onwards</p>
+                <p><strong>Achievements:</strong> Ranked among top 10% in class consistently, participated in regional mathematics olympiad</p>
+            </div>
+            
+            <div class="education-item">
+                <h3>Kakatiya High School</h3>
+                <p><strong>Program:</strong> Primary Education</p>
+                <p><strong>Duration:</strong> Until 6th Grade</p>
+                <p><strong>Activities:</strong> Active in sports, particularly excelled in Kabaddi, participated in school cultural programs, won prizes in drawing competitions</p>
+            </div>
+        </section>
+        
+        <!-- Step 4: Write the technical skills you have based on your level of expertise -->
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            
+            <table class="skills-table">
+                <thead>
+                    <tr>
+                        <th>Skill</th>
+                        <th>Proficiency Level</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>C Programming</td>
+                        <td>Intermediate</td>
+                    </tr>
+                    <tr>
+                        <td>Python</td>
+                        <td>Beginner</td>
+                    </tr>
+                    <tr>
+                        <td>HTML/CSS</td>
+                        <td>Beginner</td>
+                    </tr>
+                    <tr>
+                        <td>Arduino</td>
+                        <td>Beginner</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <!-- Step 5: Include a CV as a PDF in a hyperlink -->
+        <section id="cv">
+            <h2>Curriculum Vitae</h2>
+            <p>You can download my complete CV by clicking the button below:</p>
+            <a href="CV.pdf" class="cv-download" download>Download CV (PDF)</a>
+        </section>
+        
+        <!-- Q3: Text Analysis Section -->
+        <section id="text-analysis">
+            <h2>Text Analysis Tool</h2>
+            <p>This tool analyzes text for various linguistic elements. Enter text below (at least 10,000 words recommended):</p>
+            
+            <div class="text-analysis">
+                <textarea id="textInput" class="text-input" placeholder="Paste your text here (10,000+ words)"></textarea>
+                <button id="analyzeBtn" class="analyze-btn">Analyze Text</button>
+                
+                <div id="results" class="results" style="display: none;">
+                    <div class="result-section">
+                        <h4>Basic Text Statistics</h4>
+                        <table class="result-table">
+                            <tr>
+                                <td>Letters:</td>
+                                <td id="letterCount">0</td>
+                            </tr>
+                            <tr>
+                                <td>Words:</td>
+                                <td id="wordCount">0</td>
+                            </tr>
+                            <tr>
+                                <td>Spaces:</td>
+                                <td id="spaceCount">0</td>
+                            </tr>
+                            <tr>
+                                <td>Newlines:</td>
+                                <td id="newlineCount">0</td>
+                            </tr>
+                            <tr>
+                                <td>Special Symbols:</td>
+                                <td id="specialCount">0</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <div class="result-section">
+                        <h4>Pronouns</h4>
+                        <div id="pronounsResult"></div>
+                    </div>
+                    
+                    <div class="result-section">
+                        <h4>Prepositions</h4>
+                        <div id="prepositionsResult"></div>
+                    </div>
+                    
+                    <div class="result-section">
+                        <h4>Indefinite Articles</h4>
+                        <div id="articlesResult"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Charishma. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for event tracking and text analysis -->
+    <script>
+        // Q2: Event Tracking JavaScript
+        (function() {
+            // Track page views
+            function logPageView() {
+                const timestamp = new Date().toISOString();
+                console.log(`${timestamp}, view, page_load`);
+            }
+            
+            // Track clicks on all elements
+            function setupClickTracking() {
+                document.addEventListener('click', function(event) {
+                    const timestamp = new Date().toISOString();
+                    let elementType = 'unknown';
+                    let targetElement = event.target;
+                    
+                    // Determine the type of element clicked
+                    if (targetElement.tagName === 'IMG') {
+                        elementType = `image (${targetElement.alt || 'no alt text'})`;
+                    } else if (targetElement.tagName === 'A') {
+                        elementType = `link (${targetElement.textContent || 'no text'})`;
+                    } else if (targetElement.tagName === 'BUTTON') {
+                        elementType = `button (${targetElement.textContent || 'no text'})`;
+                    } else if (targetElement.tagName === 'TD') {
+                        elementType = `table cell (${targetElement.textContent || 'no text'})`;
+                    } else if (targetElement.tagName === 'P' || targetElement.tagName === 'H1' || 
+                              targetElement.tagName === 'H2' || targetElement.tagName === 'H3' || 
+                              targetElement.tagName === 'H4') {
+                        elementType = `text (${targetElement.tagName.toLowerCase()})`;
+                    } else {
+                        // Try to get a more specific description
+                        const parentElement = targetElement.closest('section');
+                        if (parentElement && parentElement.id) {
+                            elementType = `element in ${parentElement.id} section`;
+                        }
+                    }
+                    
+                    console.log(`${timestamp}, click, ${elementType}`);
+                });
+            }
+            
+            // Initialize tracking when page loads
+            document.addEventListener('DOMContentLoaded', function() {
+                logPageView();
+                setupClickTracking();
+            });
+        })();
+        
+        // Q3: Text Analysis JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const analyzeBtn = document.getElementById('analyzeBtn');
+            
+            analyzeBtn.addEventListener('click', function() {
+                analyzeText();
+            });
+            
+            function analyzeText() {
+                const text = document.getElementById('textInput').value;
+                
+                if (text.trim() === '') {
+                    alert('Please enter some text to analyze.');
+                    return;
+                }
+                
+                // Basic text statistics
+                const letterCount = (text.match(/[a-zA-Z]/g) || []).length;
+                const wordCount = text.trim().split(/\s+/).length;
+                const spaceCount = (text.match(/\s/g) || []).length;
+                const newlineCount = (text.match(/\n/g) || []).length;
+                const specialCount = (text.match(/[^\w\s]/g) || []).length;
+                
+                document.getElementById('letterCount').textContent = letterCount;
+                document.getElementById('wordCount').textContent = wordCount;
+                document.getElementById('spaceCount').textContent = spaceCount;
+                document.getElementById('newlineCount').textContent = newlineCount;
+                document.getElementById('specialCount').textContent = specialCount;
+                
+                // Pronouns analysis
+                const pronouns = [
+                    'i', 'me', 'my', 'mine', 'myself',
+                    'you', 'your', 'yours', 'yourself',
+                    'he', 'him', 'his', 'himself',
+                    'she', 'her', 'hers', 'herself',
+                    'it', 'its', 'itself',
+                    'we', 'us', 'our', 'ours', 'ourselves',
+                    'they', 'them', 'their', 'theirs', 'themselves',
+                    'this', 'that', 'these', 'those'
+                ];
+                
+                const pronounCounts = countTokens(text, pronouns);
+                document.getElementById('pronounsResult').innerHTML = generateResultTable(pronounCounts);
+                
+                // Prepositions analysis
+                const prepositions = [
+                    'about', 'above', 'across', 'after', 'against', 'along', 'amid', 'among',
+                    'around', 'at', 'before', 'behind', 'below', 'beneath', 'beside', 'between',
+                    'beyond', 'by', 'despite', 'during', 'except', 'for', 'from', 'in', 'inside',
+                    'into', 'like', 'near', 'of', 'off', 'on', 'onto', 'out', 'outside', 'over',
+                    'past', 'regarding', 'round', 'since', 'through', 'throughout', 'to', 'toward',
+                    'under', 'underneath', 'until', 'unto', 'up', 'upon', 'with', 'within', 'without'
+                ];
+                
+                const prepositionCounts = countTokens(text, prepositions);
+                document.getElementById('prepositionsResult').innerHTML = generateResultTable(prepositionCounts);
+                
+                // Indefinite articles analysis
+                const articles = ['a', 'an', 'the', 'some', 'any'];
+                
+                const articleCounts = countTokens(text, articles);
+                document.getElementById('articlesResult').innerHTML = generateResultTable(articleCounts);
+                
+                // Show results
+                document.getElementById('results').style.display = 'block';
+            }
+            
+            function countTokens(text, tokenList) {
+                const words = text.toLowerCase().match(/\b\w+\b/g) || [];
+                const counts = {};
+                
+                tokenList.forEach(token => {
+                    counts[token] = 0;
+                });
+                
+                words.forEach(word => {
+                    if (tokenList.includes(word)) {
+                        counts[word] = (counts[word] || 0) + 1;
+                    }
+                });
+                
+                // Filter out tokens with zero count
+                return Object.fromEntries(
+                    Object.entries(counts).filter(([_, count]) => count > 0)
+                );
+            }
+            
+            function generateResultTable(countData) {
+                const entries = Object.entries(countData);
+                
+                if (entries.length === 0) {
+                    return '<p>No occurrences found.</p>';
+                }
+                
+                // Sort by count (descending)
+                entries.sort((a, b) => b[1] - a[1]);
+                
+                let tableHTML = `
+                    <table class="result-table">
+                        <tr>
+                            <th>Term</th>
+                            <th>Count</th>
+                        </tr>
+                `;
+                
+                entries.forEach(([term, count]) => {
+                    tableHTML += `
+                        <tr>
+                            <td>${term}</td>
+                            <td>${count}</td>
+                        </tr>
+                    `;
+                });
+                
+                tableHTML += '</table>';
+                return tableHTML;
+            }
+        });
+    </script>
+</body>
+</html>
